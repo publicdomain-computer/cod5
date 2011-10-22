@@ -1,14 +1,5 @@
-                  ________________________________________________
-                 /                                               /|
-                /_______________________________________________/ |
-               |   _         _   _____       _   _____   _____  | |
-               |  | |       | | |  _  |     | | |  ___| |  ___| | |
-               |  | |   _   | | | |_| |  ___| | | |     | |     | |
-               |  | |  | |  | | |  ___| |  _  | | |     | |     | |
-               |  | |__| |__| | | |     | |_| | | |___  | |___  | |
-               |  |___________| |_|     |_____| |_____| |_____| | /
-               |________________________________________________|/
-                       the Whoow Public Domain C Compiler
+
+   COD5 - COD5 - COD5 - COD5 - COD5 - COD5 - COD5 - COD5 - COD5 - COD5 - COD5
                                               *
                                   * * * * *  *
                                 *           *  *
@@ -29,15 +20,17 @@
                              *   
                           This work is Uncopyrighted
 
- WPDCC
- =====
-A C compiler for x86 processors.
+ COD5
+ ====
+A public domain C compiler, an object oriented C framework, 
+an OS and a Computer.
 
-Homepage : 		http://www.whoow.org/project/wpdcc/
-GIT repository: 	git://git.berlios.de/cc5/wpdcc
-Developer GIT URL: 	ssh://user_name@git.berlios.de/gitroot/cc5/wpdcc
-HTTP gitweb:		http://git.berlios.de/cgi-bin/gitweb.cgi?p=cc5/wpdcc		
+Homepage : 		http://www.cod5.org
+GIT repository: 	https://github.com/cod5/cod5
+Developer GIT URL: 	git@github.com:cod5/cod5.git
+	
 
-STATUS: early stage. The preprocessor is nearly done.
+STATUS: very early stage.
 
 
+   COD5 - COD5 - COD5 - COD5 - COD5 - COD5 - COD5 - COD5 - COD5 - COD5 - COD5
