@@ -1,0 +1,19 @@
+LIBRARY cod5.dll
+
+EXPORTS
+	String_auto__ DATA
+	new___
+	String__ DATA
+	Process__ DATA
+	delete___
+	io__File__stdout DATA
+	cc__Env__ DATA
+	Exception__throw
+	test__Unit__ DATA
+	cc__PreProcessor__ DATA		
+	Object__ DATA
+	gfx__Display__ DATA
+	gfx__Display__h_instance DATA
+	io__Folder__ DATA
+	io__File__ DATA
+	

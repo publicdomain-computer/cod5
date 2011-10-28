@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual C++ Express 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cl", "cl.vcproj", "{3D564A66-20DF-4C71-9D9F-6E31D94F1F36}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cc", "cc.vcproj", "{3D564A66-20DF-4C71-9D9F-6E31D94F1F36}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ide", "ide.vcproj", "{399529AB-173E-4F53-95AF-08D7E9795E68}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -14,17 +14,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "time", "time.vcproj", "{2FF
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "unit", "unit.vcproj", "{C50C250B-9C84-4E7C-BB8A-C89D31A013D1}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wpdcc", "wpdcc.vcproj", "{D44A8251-5975-48FF-91B1-F6FB8A90F436}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "xmac", "xmac.vcproj", "{3D564A66-20DF-4C71-9D9F-6E31D9441F36}"
-	ProjectSection(ProjectDependencies) = postProject
-		{D44A8251-5975-48FF-91B1-F6FB8A90F436} = {D44A8251-5975-48FF-91B1-F6FB8A90F436}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "xlink", "xlink.vcproj", "{3D564A66-20DF-4C71-9D9F-6E21D9441F36}"
-	ProjectSection(ProjectDependencies) = postProject
-		{D44A8251-5975-48FF-91B1-F6FB8A90F436} = {D44A8251-5975-48FF-91B1-F6FB8A90F436}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cod5", "cod5.vcproj", "{D44A8251-5975-48FF-91B1-F6FB8A90F436}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,14 +46,6 @@ Global
 		{D44A8251-5975-48FF-91B1-F6FB8A90F436}.Debug|Win32.Build.0 = Debug|Win32
 		{D44A8251-5975-48FF-91B1-F6FB8A90F436}.Release|Win32.ActiveCfg = Release|Win32
 		{D44A8251-5975-48FF-91B1-F6FB8A90F436}.Release|Win32.Build.0 = Release|Win32
-		{3D564A66-20DF-4C71-9D9F-6E31D9441F36}.Debug|Win32.ActiveCfg = Debug|Win32
-		{3D564A66-20DF-4C71-9D9F-6E31D9441F36}.Debug|Win32.Build.0 = Debug|Win32
-		{3D564A66-20DF-4C71-9D9F-6E31D9441F36}.Release|Win32.ActiveCfg = Release|Win32
-		{3D564A66-20DF-4C71-9D9F-6E31D9441F36}.Release|Win32.Build.0 = Release|Win32
-		{3D564A66-20DF-4C71-9D9F-6E21D9441F36}.Debug|Win32.ActiveCfg = Debug|Win32
-		{3D564A66-20DF-4C71-9D9F-6E21D9441F36}.Debug|Win32.Build.0 = Debug|Win32
-		{3D564A66-20DF-4C71-9D9F-6E21D9441F36}.Release|Win32.ActiveCfg = Release|Win32
-		{3D564A66-20DF-4C71-9D9F-6E21D9441F36}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

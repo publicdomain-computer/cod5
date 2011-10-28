@@ -8,7 +8,7 @@
  */
 
 #include <test/Unit.h>
-#include <pal/win32.h>
+#include <pal/pal.h>
 
 int main(int argc, char **argv)
 {

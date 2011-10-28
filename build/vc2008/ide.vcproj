@@ -62,7 +62,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="Opengl32.lib wpdcc.lib"
+				AdditionalDependencies="Opengl32.lib cod5.lib"
 				OutputFile="$(OutDir)\ide.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="..\..\bin"

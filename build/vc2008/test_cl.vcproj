@@ -62,7 +62,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="wpdcc.lib Opengl32.lib"
+				AdditionalDependencies="cod5.lib Opengl32.lib"
 				OutputFile="$(OutDir)/test_cl.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="..\..\bin"

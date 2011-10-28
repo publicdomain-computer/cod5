@@ -2,7 +2,7 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="wpdcc"
+	Name="cod5"
 	ProjectGUID="{D44A8251-5975-48FF-91B1-F6FB8A90F436}"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="131072"
@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\include;..\..\include\xos"
+				AdditionalIncludeDirectories="..\..\include;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;C5_EXPORTS;_LIB;_DYN;"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -347,10 +347,6 @@
 				Name="pal"
 				>
 				<Filter
-					Name="xos"
-					>
-				</Filter>
-				<Filter
 					Name="win32"
 					>
 					<File
@@ -358,46 +354,6 @@
 						>
 					</File>
 				</Filter>
-			</Filter>
-			<Filter
-				Name="xos"
-				>
-				<File
-					RelativePath="..\..\src\xos\ddt2str.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\xos\femsg.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\xos\fisctrm.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\xos\heapsort.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\xos\opthelp.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\xos\procarg.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\xos\progarg.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\xos\svc.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\xos\xcmalloc.c"
-					>
-				</File>
 			</Filter>
 		</Filter>
 		<Filter
@@ -585,10 +541,6 @@
 					>
 				</File>
 				<Filter
-					Name="xos"
-					>
-				</Filter>
-				<Filter
 					Name="win32"
 					>
 					<File
@@ -614,306 +566,6 @@
 				</File>
 				<File
 					RelativePath="..\..\include\io\Serializer.h"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="xos"
-				>
-				<File
-					RelativePath="..\..\include\xos\_epilog.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\_prolog.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\baseline.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\HEAPSORT.H"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\procarg.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\progarg.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\progasst.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\proghelp.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\XCMALLOC.H"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xcstring.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xos.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\XOSACCT.H"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosaheapsort.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosbit.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosbmf.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xoscrypt.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\XOSDCHAR.H"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\XOSDCSTS.H"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosdisk.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosencpswd.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\XOSENV.H"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xoserr.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xoserrmsg.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosfibers.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosftpfunc.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosgdp.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosgetusersig.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\XOSLOG.H"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\XOSMSG.H"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosnet.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosnia.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosprocarg.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosqdes.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosrandom.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\XOSRTN.H"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosrun.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosserverf.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosserverfwt.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosservert.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xossetupsession.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xossignal.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xossinfo.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xossnd.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xossnda.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xossound.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\XOSSTR.H"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xossvc.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosswap.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\XOSSYSP.H"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosthreads.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xostime.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xostrm.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosudf.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosudfsrv.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosudfutil.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosusb.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosusr.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosvfyuser.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xoswildcard.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosx.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosxdfs.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosxffs.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosxid.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosxlke.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosxtrm.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosxwc.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosxwp.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosxws.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosxwsx.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\XOSXXFS.H"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xosxxws.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xoszipfile.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xwp.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\xos\xws.h"
 					>
 				</File>
 			</Filter>
