@@ -24,6 +24,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = cod5.org;
 			};
 			buildConfigurationList = A46FFDE718E709A300228844 /* Build configuration list for PBXProject "cod5" */;
 			compatibilityVersion = "Xcode 3.2";
