@@ -1,15 +1,16 @@
 
 include makeinclude
 include src/makeinclude
+include appsrc/cxx/makeinclude
 
 CFILES = $(SRC)
 OBJECTS = $(CFILES:.cpp=$(OBJ))
 TCFILES = $(TEST)
 TOBJECTS = $(TCFILES:.cpp=$(OBJ))
-CLCFILES = $(CL)
+CLCFILES = $(CXX_)
 CLOBJECTS = $(CLCFILES:.cpp=$(OBJ))
 
-all: $(OBJECTS) bin/$(LIBNAME) $(TOBJECTS) bin/test$(EXEEXT) bin/cl$(EXEEXT)
+all: $(OBJECTS) bin/$(LIBNAME) $(TOBJECTS) bin/test$(EXEEXT) bin/cxx$(EXEEXT)
 
 bin/$(LIBNAME): $(OBJECTS)
 	$(LIBCOMMAND)$@ $(OBJECTS) 
