@@ -1,15 +1,13 @@
 
 include makeinclude
 include src/makeinclude
-include test/makeinclude
-include cl/makeinclude
 
 CFILES = $(SRC)
-OBJECTS = $(CFILES:.c=$(OBJ))
+OBJECTS = $(CFILES:.cpp=$(OBJ))
 TCFILES = $(TEST)
-TOBJECTS = $(TCFILES:.c=$(OBJ))
+TOBJECTS = $(TCFILES:.cpp=$(OBJ))
 CLCFILES = $(CL)
-CLOBJECTS = $(CLCFILES:.c=$(OBJ))
+CLOBJECTS = $(CLCFILES:.cpp=$(OBJ))
 
 all: $(OBJECTS) bin/$(LIBNAME) $(TOBJECTS) bin/test$(EXEEXT) bin/cl$(EXEEXT)
 
@@ -17,14 +15,9 @@ bin/$(LIBNAME): $(OBJECTS)
 	$(LIBCOMMAND)$@ $(OBJECTS) 
 
 bin/test$(EXEEXT): $(TOBJECTS) $(OBJECTS)
-	$(CC) $(LDFLAGS) -mconsole -obin/test$(EXEEXT) $(LDLIBS) \
+	$(CXX) $(LDFLAGS) -mconsole -obin/test$(EXEEXT) $(LDLIBS) \
 		-Wb-E,bin/libtest.exe.def \
 		$(TOBJECTS) $(OBJECTS)  
-
-bin/cl$(EXEEXT): $(CLOBJECTS) bin/$(LIBNAME)
-	$(CC) $(LDFLAGS) -mconsole -obin/cl$(EXEEXT) $(LDLIBS) \
-		$(CLOBJECTS) \
-		$(OBJECTS) 
 
 
 clean:
