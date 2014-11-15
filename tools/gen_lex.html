@@ -1,0 +1,118 @@
+<html>
+<head>
+<script>
+
+function out(txt, tab)
+{
+	for (i = 0; i < tab; i++) {
+		txt = "    " + txt;
+	}
+	document.getElementById("out").value += txt;
+}
+
+
+function term(txt, i, n)
+{
+	out("if (is_equal(cstr, size, (utf8*)\"" +
+		txt[i] + "\", " + txt[i].length +
+		", " + (n + 1) + ")) {\n", n + 2);
+	out("return CC_" + txt[i] + ";\n", n + 3);
+	out("}\n", n + 2);
+
+}
+
+function unique(txt, i, n, a)
+{
+	while (i < txt.length && txt[i].substr(0, n) == a) {
+		b = txt[i].substr(0, n + 1);
+		out("case '" + b.substr(n, 1) + "':\n", n + 1);
+		if (i < txt.length - 1 && b == txt[i + 1].substr(0, n + 1)) {
+			if (n >= 1) {
+				out("if (size <= " + (n + 1) + ") break;\n", n + 2);
+			}
+			out("switch (cstr[" + (n + 1) + "]) {\n", n + 2);
+			i = unique(txt, i, n + 1, b);
+			out("}\n", n + 2);
+		} else {
+			term(txt, i, n);
+			i++;
+		}
+		out("break;\n", n + 2);
+	}
+	return i;
+}
+
+function gen()
+{
+	i = 0;
+	txt = document.getElementById("in").value;
+
+	txt = txt.split("\n");
+
+	i = 0;
+	while (i < txt.length) {
+		txt[i] = txt[i].substr(0, txt[i].length - 1);
+		i++;
+	}
+	
+	out("switch (cstr[0]) {\n", 0);
+	i = 0;
+	a = "";
+	unique(txt, i, 0, a);
+	out("}\n", 0);
+}
+</script>
+</head>
+<body>
+<form action="javascript:gen()">
+<input type="submit"> <br />
+<textarea id="in" rows="80">auto
+break
+case
+char
+const
+continue
+default
+do
+double
+else
+enum
+extern
+float
+for
+goto
+if
+inline
+int
+long
+register
+restrict
+return
+short
+signed
+sizeof
+static
+struct
+switch
+typedef
+union
+unsigned
+void
+volatile
+while
+_Alignas
+_Alignof
+_Atomic
+_Bool
+_Complex
+_Generic
+_Imaginary
+_Noreturn
+_Static_assert
+_Thread_local
+</textarea>
+<textarea id="out" cols="80" rows="80"></textarea>
+
+</form>
+</body>
+</html>
