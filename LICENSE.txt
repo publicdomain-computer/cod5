@@ -1,15 +1,14 @@
-The author or authors of this work dedicate any and all copyright interest in 
-this work to the public domain. We make this dedication for the benefit of the 
-public at large and to the detriment of our heirs and successors. We intend this
-dedication to be an overt act of relinquishment in perpetuity of all present and
-future rights to this work under copyright law. 
+The author or authors of this Software dedicate any and all copyright interest 
+in this Software to the public domain. We make this dedication for the benefit
+of the public at large and to the detriment of our heirs and successors. 
+We intend this dedication to be an overt act of relinquishment in perpetuity 
+of all present and future rights to this Software under copyright law. 
 
-However, as a special exception, this work is subject to the 
-"Boost Software License" in case of the above dedication to the public domain is
-not valid in your jurisdiction. The terms and conditions of the 
-"Boost Software License" are following:
+Even though this Software is in the public domain and does not require a 
+license, it is alternatively (at your option) distributed under the 
+following terms and conditions:
 
-          Copyright (c) MMVI-MMXI, the WPDCC programmers team and others
+        Copyright (c) 2013-2014, the cod5.org programmers and others
 
   Boost Software License - Version 1.0 - August 17th, 2003
 
