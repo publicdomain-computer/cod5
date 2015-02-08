@@ -1,4 +1,4 @@
 
-include src/cc/makeinclude
+include src/cxx/makeinclude
 
-SRC = $(SRC_CC) 
+SRC = $(SRC_CXX) 

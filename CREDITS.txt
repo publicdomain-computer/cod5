@@ -4,7 +4,7 @@ Tuffy font: 	http://tulrich.com/fonts/
 stb_truetype: 	http://nothings.org/stb/stb_truetype.h
 stb_image: 	http://nothings.org/stb_image.c
 
-Here is the list of WPDCC contributors in alphabetical order :
+Here is the list of contributors in alphabetical order :
 ==============================================================
 Jean-Marc Lienher (jean-marc.lienher at bluewin.ch)
 

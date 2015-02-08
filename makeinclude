@@ -2,15 +2,16 @@
 MAKE		= make
 CXX		= clang++ 
 RM		= rm -f  
+CP		= cp  
 
 OPTIM		= -g -O2
-CFLAGS		= $(OPTIM) -D_REENTRANT -Wall -fPIC
+CFLAGS		= $(OPTIM) -D_REENTRANT -Wall -fPIC -std=c++1y
 LDFLAGS		= $(OPTIM) -D_REENTRANT -fPIC
 LDLIBS		= 
 EXEEXT		= .exe
 
 LIBNAME		= c5.dll.so
-LIBCOMMAND	= clang++ -shared -g -fPIC -D_REENTRANT  bin/libc5.def -o
+LIBCOMMAND	= clang++ -shared -g -fPIC -D_REENTRANT   -o
 #LIBCOMMAND	= ld  -m elf_i386  -L/usr/lib32/   -lc -lm -r -o 
 
 OBJ		= .o
@@ -22,7 +23,7 @@ OBJ		= .o
 .SUFFIXES:	.cpp $(OBJ)
 
 .cpp$(OBJ):
-	echo Compiling $<...
-	$(CXX) -I./include -I/mingw/include $(CFLAGS) -c $< -o$@
+	@echo Compiling $<...
+	$(CXX) -I./include $(CFLAGS) -c $< -o$@
 
 

@@ -1,1 +1,4 @@
-CXX_ = appsrc/cxx/main.cpp
+CXX_ = \
+	appsrc/cxx/main.cpp \
+
+

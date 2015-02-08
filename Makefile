@@ -5,25 +5,28 @@ include appsrc/cxx/makeinclude
 
 CFILES = $(SRC)
 OBJECTS = $(CFILES:.cpp=$(OBJ))
-TCFILES = $(TEST)
-TOBJECTS = $(TCFILES:.cpp=$(OBJ))
 CLCFILES = $(CXX_)
 CLOBJECTS = $(CLCFILES:.cpp=$(OBJ))
 
-all: $(OBJECTS) bin/$(LIBNAME) $(TOBJECTS) bin/test$(EXEEXT) bin/cxx$(EXEEXT)
+all: $(OBJECTS)  bin/cxx$(EXEEXT) bin/$(LIBNAME)
+
+tests: all
+	(cd tests; sh test.sh)
 
 bin/$(LIBNAME): $(OBJECTS)
 	$(LIBCOMMAND)$@ $(OBJECTS) 
 
-bin/test$(EXEEXT): $(TOBJECTS) $(OBJECTS)
-	$(CXX) $(LDFLAGS) -mconsole -obin/test$(EXEEXT) $(LDLIBS) \
-		-Wb-E,bin/libtest.exe.def \
-		$(TOBJECTS) $(OBJECTS)  
+
+bin/cxx$(EXEEXT): $(CLOBJECTS) $(OBJECTS)
+	$(CXX) $(LDFLAGS)  -obin/cxx$(EXEEXT) $(LDLIBS) \
+		$(CLOBJECTS) $(OBJECTS)  
 
 
 clean:
 	$(RM) bin/*.exe
-	$(RM) bin/cl
+	$(RM) tests/*.exe
+	$(RM) tests/*.o
+	$(RM) bin/cxx
 	$(RM) bin/test
 	$(RM) bin/*.so
 	$(RM) cl/*~
@@ -42,7 +45,12 @@ clean:
 	$(RM) src/gfx/*~
 	$(RM) $(OBJECTS)
 	$(RM) $(TOBJECTS)
+	$(RM) $(CLOBJECTS)
 	$(RM) vc80.idb
+	$(RM) -r debian/cod5
+	$(RM) debian/cod5.substvars
+	$(RM) debian/cod5.debhelper.log
+	$(RM) debian/files
 
 distclean: clean
 	$(RM) config.status
@@ -51,4 +59,8 @@ distclean: clean
 depend:
 
 install:
+	mkdir "$(DESTDIR)/usr"
+	mkdir "$(DESTDIR)/usr/bin"
+	$(CP) bin/cxx$(EXEEXT) "$(DESTDIR)/usr/bin/cxx"
+	chmod +x "$(DESTDIR)/usr/bin/cxx"
 

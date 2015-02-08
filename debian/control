@@ -1,39 +1,19 @@
-Source: c5
-Section: otherosfs
-Priority: optional
-Maintainer: Jean-Marc Lienher <oksid@bluewin.ch>
-Uploaders: Jean-Marc Lienher <oksid@bluewin.ch>
-Build-Depends: debhelper (>= 5.0.0), 
- wine-dev
-Standards-Version: 3.7.3
+Source: cod5
+Section: unknown
+Priority: EXTRA
+Maintainer: Jean-Marc Lienher <jean-marc.lienher@bluewin.ch>
+Uploaders: Jean-Marc Lienher <jean-marc.lienher@bluewin.ch>
+Build-Depends: debhelper (>=9), 
+Standards-Version: 3.9.4
+Homepage: http://www.cod5.org/
 
-Package: c5
+Package: cod5
 Architecture: any
-Pre-Depends: dpkg (>= 1.14.12ubuntu3)
-Depends: procps, binfmt-support (>= 1.1.2), ${shlibs:Depends}
-Recommends: ttf-liberation, winbind, wine-gecko
-Suggests: msttcorefonts, xdg-utils
-Conflicts: 
-Replaces: 
-Description: The public domain C compiler 
- C compiler.
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: The public domain C++ compiler 
+ cod5 is a C++ pre-processor. It will be a full C++ compiler in the future.
+ . 
+ The command line tool name is "cxx".
  .
- You can compile C programs.
- .
-  Homepage: http://www.whoow.org/
-
-Package: c5-dev
-Architecture: any
-Section: libdevel
-Pre-Depends: dpkg (>= 1.14.12ubuntu3)
-Depends: c5 (= ${binary:Version}), libc6-dev
-Conflicts: 
-Replaces: 
-Description: The public domain C compiler (Development files)
- C compiler.
- .
- C5.
- .
-  Homepage: http://www.whoow.org/
-
+ cod5 was written from scratch in C++11.
 
