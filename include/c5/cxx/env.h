@@ -59,8 +59,8 @@ public:
 	std::vector<std::unique_ptr<std::string>>& get_inc_dir();
 	std::vector<std::unique_ptr<std::string>>& get_lib();
 	void dump();
-	virtual void process_src(std::string &src);
-	virtual void process_inc(std::string &include, bool is_local);
+	virtual void process_src(std::unique_ptr<std::string> src);
+	virtual void process_inc(std::unique_ptr<std::string> include, bool is_local);
 private:
 	PreProcessor pre;
 	std::array<int, options::last> values;

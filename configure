@@ -1,2 +1,4 @@
 chmod +x configure
+rm -f build/Makefile
+qmake build/build.pro
 echo ok > config.status

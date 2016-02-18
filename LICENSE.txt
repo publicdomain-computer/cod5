@@ -8,7 +8,7 @@ Even though this Software is in the public domain and does not require a
 license, it is alternatively (at your option) distributed under either the
 UNLICENSE (see UNLICENSE.txt) or under the following terms and conditions:
 
-        Copyright (c) 2008-2015, the cod5.org programmers and others
+        Copyright (c) 2008-2016, the cod5.org programmers and others
 
   Boost Software License - Version 1.0 - August 17th, 2003
 

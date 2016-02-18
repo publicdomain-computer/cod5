@@ -113,20 +113,20 @@ void Env::dump()
 {
 	cout << "* macros\n";
 	for (auto it = macros.begin(); it != macros.end(); it++) {
-		cout << it->first << " = " << *it->second.get() << "\n";
+		cout << it->first << " = " << *(it->second) << "\n";
 	}
 
 	cout << "* include directories\n";
 	for (auto it = inc_dir.begin(); it != inc_dir.end(); it++) {
-		cout << *it->get() << "\n";
+		cout << *(*it) << "\n";
 	}
 		
 }
 
-void Env::process_src(string &src) 
+void Env::process_src(unique_ptr<string> src) 
 {
         if (is_set(options::print_cmd)) {
-                cout << "Compiling \"" <<  src << "\"...\n";
+                cout << "Compiling \"" <<  *src << "\"...\n";
         }
 	char p[PATH_MAX];
 	if (!getcwd(p, PATH_MAX)) {
@@ -134,8 +134,8 @@ void Env::process_src(string &src)
 	}
 	string s = p;
 	s += "/";
-	s += src;
-	files.push_back(unique_ptr<string>{new string{s}});
+	s += *src;
+	files.push_back(make_unique<string>(s));
 	files_stack.push(files.size() - 1);
 	
 	ifstream is;
@@ -144,29 +144,29 @@ void Env::process_src(string &src)
 	files_stack.pop();
 }
 
-void Env::process_inc(string &include, bool is_local)
+void Env::process_inc(unique_ptr<string> include, bool is_local)
 {
 	if (is_local) {
-		string s = *files[files_stack.top()].get();
+		string s = *files[files_stack.top()];
 		s.resize(s.rfind('/'));	
 		s += "/";
-		s += include;	
+		s += *include;	
 		if (process_file_success(s)) return;
 	}
 
 	for (auto it = inc_dir.begin(); it != inc_dir.end(); it++) {
-		string s = *it->get();
+		string s = *(*it);
 		s += "/";
-		s += include;
+		s += *include;
 		if (process_file_success(s)) return;
 
 	}
 	if (is_local) {
 		throw std::runtime_error("cannot open include \"" + 
-			include + "\"");
+			*include + "\"");
 	} else {
 		throw std::runtime_error("cannot open include <" + 
-			include + ">");
+			*include + ">");
 	}
 }
 
@@ -175,7 +175,7 @@ bool Env::process_file_success(string &name)
   	struct stat buffer;   
   	if (stat(name.c_str(), &buffer) != 0) return false;
 
-	files.push_back(unique_ptr<string>{new string{name}});
+	files.push_back(make_unique<string>(name));
 	files_stack.push(files.size() - 1);
         
 	if (is_set(options::print_header)) {

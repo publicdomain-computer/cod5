@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 	vector<unique_ptr<string>> args;
 	
 	for (int i = 0; i < argc; i++) {
-		args.push_back(unique_ptr<string>{new string{argv[i]}});
+		args.push_back(make_unique<string>(argv[i]));
 //		cout << string(argv[i]);
 	}
 	

@@ -1,4 +1,4 @@
-/*
+﻿/*
  *                          21 November MMXIV PUBLIC DOMAIN
  *             The author disclaims copyright to this source code.
  *
@@ -152,41 +152,64 @@ void PreProcessor::directive()
 	current.clear();
 	size_t i = 0;
 	while (t[i] == ' ' || t[i] == '\t' || t[i] == '\v' || t[i] == '\f') i++;
-	size_t p = 0;
-	if ((p = t.find("include", i)) != string::npos) {
-		p += 7;
-		while (t[p] == ' ' || t[p] == '\t' || t[p] == '\v' 
-			|| t[p] == '\f') 
-		{
-			p++;
+	size_t p = i;
+	switch (t[i]) {
+	case 'i':
+		if (t.compare(i, 7, "include") == 0) {
+			p += 7;
+			while (t[p] == ' ' || t[p] == '\t' || t[p] == '\v'
+				|| t[p] == '\f')
+			{
+				p++;
+			}
+			if (t[p] == '"') {
+				i = p + 1;
+				while (t[i] != '"') i++;
+				t = t.substr(p + 1, i - p - 1);
+				environ.process_inc(make_unique<string>(t), true);
+				return;
+			} else if (t[p] == '<') {
+				i = p + 1;
+				while (t[i] != '>') i++;
+				t = t.substr(p + 1, i - p - 1);
+				environ.process_inc(make_unique<string>(t), false);
+				return;
+			} else {
+				throw std::runtime_error("#" + t);
+			}
+		} else if (t.compare(i, 5, "ifdef") == 0) {
+		} else if (t.compare(i, 6, "ifndef") == 0) {
+		} else if (t.compare("if") == 0) {
 		}
-		if (t[p] == '"') {
-			i = p + 1;
-			while (t[i] != '"') i++;
-			t = t.substr(p + 1, i - p - 1);	
-			environ.process_inc(t, true);
-		} else if (t[p] == '<') {
-			i = p + 1;
-			while (t[i] != '>') i++;	
-			t = t.substr(p + 1, i - p - 1);	
-			environ.process_inc(t, false);
+		break;
+	case 'd':
+		if (t.compare(i, 6, "define") == 0) {
+
 		}
-		return;
-	} else if ((p = t.find("define", i)) != string::npos) {
-	} else if ((p = t.find("undef", i)) != string::npos) {
-	} else if ((p = t.find("if", i)) != string::npos) {
-	} else if ((p = t.find("ifdef", i)) != string::npos) {
-	} else if ((p = t.find("ifndef", i)) != string::npos) {
-	} else if ((p = t.find("else", i)) != string::npos) {
-	} else if ((p = t.find("elif", i)) != string::npos) {
-	} else if ((p = t.find("endif", i)) != string::npos) {
-	} else if ((p = t.find("line", i)) != string::npos) {
-	} else if ((p = t.find("error", i)) != string::npos) {
-		throw std::runtime_error("#" + t);
-	} else if ((p = t.find("pragma", i)) != string::npos) {
-	} else {
-		cout << current << "\n";
-	} 
+		break;
+	case 'u':
+		if (t.compare(i, 5, "undef", i) == 0) {
+
+		}
+		break;
+	case 'e':
+		if (t.compare(i, 4, "else", i) == 0) {
+		} else if (t.compare(i, 4, "elif", i) == 0) {
+		} else if (t.compare(i, 5, "endif", i) == 0) {
+		} else if (t.compare(i, 5, "error", i) == 0) {
+		}
+		break;
+	case 'l':
+		if (t.compare(i, 4, "line", i) == 0) {
+			throw std::runtime_error("#" + t);
+		}
+		break;
+	case 'p':
+		if (t.compare(i, 6, "pragma") == 0) {
+		}
+		break;
+	}
+	cout << current << "\n";
 	return;
 	PreProcessor pp(ev);
 	pp.set_is_directive(true);

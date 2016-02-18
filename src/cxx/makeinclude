@@ -1,8 +1,0 @@
-
-SRC_CXX = \
-	src/cxx/compiler.cpp \
-	src/cxx/env.cpp \
-	src/cxx/pretokens.cpp \
-	src/cxx/preprocessor.cpp \
-
-

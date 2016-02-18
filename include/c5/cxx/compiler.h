@@ -22,8 +22,8 @@ public:
 
 private:
 	void usage();
-	void add_source(std::string &src);
-	void compile(std::string &src);
+	void add_source(std::unique_ptr<std::string> src);
+	void compile(std::unique_ptr<std::string> src);
 	void set_directories();
 
 	std::vector<std::unique_ptr<std::string>> sources;

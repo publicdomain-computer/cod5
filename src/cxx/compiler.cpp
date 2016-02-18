@@ -25,8 +25,8 @@ int Compiler::run(vector<unique_ptr<string>>& args)
 	
 	set_directories();
 
-	for (int i = 1;  i < args.size(); i++) {
-		string &s = *args[i].get();
+	for (size_t i = 1;  i < args.size(); i++) {
+		string &s = *args[i];
 		string t;
 		string u;
 		if (s[0] == '-') {
@@ -45,7 +45,7 @@ int Compiler::run(vector<unique_ptr<string>>& args)
 						return -1;
 					}
 					env.set(options::optimization,
-						*args[i].get());
+						*args[i]);
 				} else {
 					t = s.substr(2, string::npos);		
 					env.set(options::optimization, t);
@@ -73,7 +73,7 @@ int Compiler::run(vector<unique_ptr<string>>& args)
 						usage();
 						return -1;
 					}
-					t = *args[i].get();
+					t = *args[i];
 				} else {
 					t = s.substr(2, string::npos);
 							
@@ -98,7 +98,7 @@ int Compiler::run(vector<unique_ptr<string>>& args)
 						return -1;
 					}
 					env.set(options::undef,
-						*args[i].get());
+						*args[i]);
 				} else {
 					t = s.substr(2, string::npos);		
 					env.set(options::undef, t);
@@ -115,7 +115,7 @@ int Compiler::run(vector<unique_ptr<string>>& args)
 						return -1;
 					}
 					env.set(options::output,
-						*args[i].get());
+						*args[i]);
 				} else {
 					t = s.substr(2, string::npos);		
 					env.set(options::output, t);
@@ -147,7 +147,7 @@ int Compiler::run(vector<unique_ptr<string>>& args)
 						return -1;
 					}
 					env.set(options::library,
-						*args[i].get());
+						*args[i]);
 				} else {
 					t = s.substr(2, string::npos);		
 					env.set(options::library, t);
@@ -161,7 +161,7 @@ int Compiler::run(vector<unique_ptr<string>>& args)
 						return -1;
 					}
 					env.set(options::inc_dir,
-						*args[i].get());
+						*args[i]);
 				} else {
 					t = s.substr(2, string::npos);		
 					env.set(options::inc_dir, t);
@@ -175,7 +175,7 @@ int Compiler::run(vector<unique_ptr<string>>& args)
 						return -1;
 					}
 					env.set(options::lib_dir,
-						*args[i].get());
+						*args[i]);
 				} else {
 					t = s.substr(2, string::npos);		
 					env.set(options::lib_dir, t);
@@ -187,7 +187,7 @@ int Compiler::run(vector<unique_ptr<string>>& args)
 			}
 			
 		} else {
-			add_source(s);
+			add_source(move(args[i]));
 		}
 	}
 
@@ -198,16 +198,16 @@ int Compiler::run(vector<unique_ptr<string>>& args)
 		return -1;
 	}
         for (auto it = sources.begin(); it != sources.end(); it++) {
-		compile(*it->get());
+		compile(move(*it));
         }
 
 
 	return 0;
 }
 
-void Compiler::add_source(string &src)
+void Compiler::add_source(unique_ptr<string> src)
 {
-	sources.push_back(unique_ptr<string>{new string{src}});
+	sources.push_back(move(src));
 }
 
 void Compiler::usage()
@@ -241,9 +241,9 @@ void Compiler::usage()
 }
 
 
-void Compiler::compile(string &src)
+void Compiler::compile(unique_ptr<string> src)
 {
-	env.process_src(src);
+	env.process_src(move(src));
 }
 
 void Compiler::set_directories()
